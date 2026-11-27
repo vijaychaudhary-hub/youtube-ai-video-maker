@@ -1,1 +1,118 @@
 
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Video Maker</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#101323;color:white}
+header{padding:22px 7%;background:#191e35;border-bottom:1px solid #343b59}
+.logo{font-size:25px;font-weight:bold;color:#a99aff}
+main{max-width:850px;margin:45px auto;padding:20px}
+h1{font-size:34px}
+p{color:#b9bfd5;line-height:1.6}
+.panel{background:#1b213b;padding:25px;border-radius:16px;margin-top:25px}
+label{display:block;margin:18px 0 8px}
+input,select,textarea{width:100%;padding:13px;border-radius:9px;border:1px solid #454d70;background:#11172b;color:white;font-size:16px}
+textarea{min-height:100px;resize:vertical}
+button{margin-top:22px;padding:14px 22px;border:0;border-radius:9px;background:#8067ff;color:white;font-size:16px;font-weight:bold;cursor:pointer}
+button:hover{background:#6b50eb}
+#result{white-space:pre-wrap;line-height:1.8;margin-top:20px;color:#e4e5ff}
+footer{text-align:center;color:#8991ae;padding:30px}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">✨ AI Video Maker</div>
+</header>
+<main>
+  <h1>अपना अगला वीडियो बनाओ 🎬</h1>
+  <p>अपने आइडिया को वीडियो स्क्रिप्ट, सीन और YouTube कंटेंट में बदलने की शुरुआत करो।</p>
+
+  <div class="panel">
+    <h2>वीडियो की जानकारी</h2>
+
+    <label>वीडियो का विषय लिखो</label>
+    <textarea id="topic" placeholder="जैसे: अंतरिक्ष के 5 रहस्य, महादेव की कहानी, टेक्नोलॉजी..."></textarea>
+
+    <label>वीडियो की भाषा</label>
+    <select id="language">
+      <option>Hindi</option>
+      <option>English</option>
+      <option>Hinglish</option>
+    </select>
+
+    <label>वीडियो की अवधि</label>
+    <select id="duration">
+      <option>30 सेकंड</option>
+      <option>1 मिनट</option>
+      <option>3 मिनट</option>
+      <option>5 मिनट</option>
+      <option>10 मिनट</option>
+    </select>
+
+    <label>वीडियो का प्रकार</label>
+    <select id="style">
+      <option>Educational</option>
+      <option>Devotional</option>
+      <option>Motivational</option>
+      <option>Story</option>
+      <option>Entertainment</option>
+      <option>Facts</option>
+    </select>
+
+    <button onclick="makePlan()">वीडियो प्लान बनाओ ✨</button>
+    <div id="result"></div>
+  </div>
+</main>
+<footer>AI Video Maker · आपका क्रिएटिव स्टूडियो</footer>
+
+<script>
+function makePlan(){
+  const topic=document.getElementById("topic").value.trim();
+  const language=document.getElementById("language").value;
+  const duration=document.getElementById("duration").value;
+  const style=document.getElementById("style").value;
+  const result=document.getElementById("result");
+
+  if(!topic){
+    result.textContent="पहले वीडियो का विषय लिखो।";
+    return;
+  }
+
+  result.textContent=
+`🎬 आपका वीडियो प्लान
+
+विषय: ${topic}
+भाषा: ${language}
+अवधि: ${duration}
+प्रकार: ${style}
+
+📌 शुरुआत:
+एक आकर्षक सवाल या हुक से वीडियो शुरू करें।
+
+🎥 सीन 1:
+${topic} का परिचय दें।
+
+🎥 सीन 2:
+विषय की मुख्य जानकारी या कहानी बताएं।
+
+🎥 सीन 3:
+एक रोचक तथ्य या महत्वपूर्ण मोड़ जोड़ें।
+
+🎙️ वॉइसओवर:
+इस विषय पर आसान और दिलचस्प भाषा में बोलें।
+
+📺 YouTube शीर्षक:
+${topic} | जानिए पूरी कहानी!
+
+#YouTube #AIvideo #${style.replaceAll(" ","")}
+
+यह शुरुआती डेमो प्लान है। असली AI स्क्रिप्ट और वीडियो जनरेशन अभी कनेक्ट नहीं है।`;
+}
+</script>
+</body>
+</html>
+
